@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 class Authentication {
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest login_req) {
+        System.out.println(login_req.getEmail() + "\n" + login_req.getPassword());
         return "success";
     }
 }

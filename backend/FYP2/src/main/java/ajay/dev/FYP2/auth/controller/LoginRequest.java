@@ -1,22 +1,23 @@
 package ajay.dev.FYP2.auth.controller;
 
 public class LoginRequest {
-    String email;
-    String password;
+    private String email; // Changed to private (best practice)
+    private String password;
 
-    public String get_user_email() {
+    // Use standard camelCase names
+    public String getEmail() {
         return email;
     }
 
-    public String get_password() {
-        return password;
-    }
-
-    public void set_email(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public void set_password(String password) {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 }
