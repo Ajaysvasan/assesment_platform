@@ -1,0 +1,14 @@
+package ajay.dev.FYP2;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Fyp2Application {
+
+    public static void main(String[] args) {
+        System.out.print("hello world");
+        SpringApplication.run(Fyp2Application.class, args);
+    }
+
+}
