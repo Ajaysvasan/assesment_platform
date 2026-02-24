@@ -1,4 +1,4 @@
-package ajay.dev.FYP2.auth.controller;
+package ajay.dev.FYP2.auth.dto;
 
 public class LoginRequest {
     private String email; // Changed to private (best practice)

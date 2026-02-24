@@ -1,4 +1,5 @@
-package ajay.dev.FYP2.auth.controller;
+
+package ajay.dev.FYP2.auth.dto;
 
 import ajay.dev.FYP2.auth.controller.models.*;
 
