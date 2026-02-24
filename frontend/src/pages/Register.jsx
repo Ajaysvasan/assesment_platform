@@ -55,10 +55,10 @@ export const Register = () => {
         password: '',
         confirmPassword: '',
 
-        role: 'candidate', // 'candidate' | 'conductor'
-        candidateType: 'student', // 'student' | 'non-student'
-        isWorking: 'yes', // 'yes' | 'no'
-        conductorType: 'institution', // 'institution' | 'self'
+        role: 'CANDIDATE',
+        candidateType: 'STUDENT',
+        isWorking: 'YES',
+        conductorType: 'INSTITUTION',
 
         institutionName: '',
         phoneNumber: '',
@@ -98,16 +98,16 @@ export const Register = () => {
                 role: formData.role
             };
 
-            if (formData.role === 'candidate') {
+            if (formData.role === 'CANDIDATE') {
                 payload.candidateType = formData.candidateType;
-                if (formData.candidateType === 'student') {
+                if (formData.candidateType === 'STUDENT') {
                     payload.institutionName = formData.institutionName;
                     payload.phoneNumber = formData.phoneNumber;
                     payload.yearOfPassing = formData.yearOfPassing;
                     payload.registerNumber = formData.registerNumber;
                 } else {
-                    payload.isWorkingProfessional = formData.isWorking === 'yes';
-                    if (formData.isWorking === 'yes') {
+                    payload.isWorkingProfessional = formData.isWorking === 'YES';
+                    if (formData.isWorking === 'YES') {
                         payload.companyName = formData.companyName;
                         payload.designation = formData.designation;
                     } else {
@@ -117,7 +117,7 @@ export const Register = () => {
                 }
             } else {
                 payload.conductorType = formData.conductorType;
-                if (formData.conductorType === 'institution') {
+                if (formData.conductorType === 'INSTITUTION') {
                     payload.institutionName = formData.institutionName;
                     payload.institutionId = formData.institutionId;
                 } else {
@@ -177,13 +177,13 @@ export const Register = () => {
                                 value={formData.role}
                                 onChange={(val) => handleToggle('role', val)}
                                 options={[
-                                    { label: "Candidate / Student", value: "candidate" },
-                                    { label: "Test Conductor", value: "conductor" }
+                                    { label: "Candidate / Student", value: "CANDIDATE" },
+                                    { label: "Test Conductor", value: "CONDUCTOR" }
                                 ]}
                             />
 
                             <AnimatePresence mode="wait">
-                                {formData.role === 'candidate' && (
+                                {formData.role === 'CANDIDATE' && (
                                     <motion.div
                                         key="candidate"
                                         initial={{ opacity: 0, height: 0 }}
@@ -197,12 +197,12 @@ export const Register = () => {
                                             value={formData.candidateType}
                                             onChange={(val) => handleToggle('candidateType', val)}
                                             options={[
-                                                { label: "Student", value: "student" },
-                                                { label: "Non-Student", value: "non-student" }
+                                                { label: "Student", value: "STUDENT" },
+                                                { label: "Non-Student", value: "NON_STUDENT" }
                                             ]}
                                         />
 
-                                        {formData.candidateType === 'student' && (
+                                        {formData.candidateType === 'STUDENT' && (
                                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                                                 <InputField id="institutionName" label="Institution Name" icon={Building2} value={formData.institutionName} onChange={handleChange} placeholder="University of Technology" />
                                                 <InputField id="phoneNumber" label="Phone Number" type="tel" icon={Phone} value={formData.phoneNumber} onChange={handleChange} placeholder="+1 (555) 000-0000" />
@@ -213,19 +213,19 @@ export const Register = () => {
                                             </motion.div>
                                         )}
 
-                                        {formData.candidateType === 'non-student' && (
+                                        {formData.candidateType === 'NON_STUDENT' && (
                                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                                                 <ToggleGroup
                                                     label="Are you a working professional?"
                                                     value={formData.isWorking}
                                                     onChange={(val) => handleToggle('isWorking', val)}
                                                     options={[
-                                                        { label: "Yes", value: "yes" },
-                                                        { label: "No", value: "no" }
+                                                        { label: "Yes", value: "YES" },
+                                                        { label: "No", value: "NO" }
                                                     ]}
                                                 />
 
-                                                {formData.isWorking === 'yes' ? (
+                                                {formData.isWorking === 'YES' ? (
                                                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                                                         <InputField id="companyName" label="Company Name" icon={Building2} value={formData.companyName} onChange={handleChange} placeholder="Tech Corp Inc." />
                                                         <InputField id="designation" label="Designation" icon={Briefcase} value={formData.designation} onChange={handleChange} placeholder="Software Engineer" />
@@ -241,7 +241,7 @@ export const Register = () => {
                                     </motion.div>
                                 )}
 
-                                {formData.role === 'conductor' && (
+                                {formData.role === 'CONDUCTOR' && (
                                     <motion.div
                                         key="conductor"
                                         initial={{ opacity: 0, height: 0 }}
@@ -255,12 +255,12 @@ export const Register = () => {
                                             value={formData.conductorType}
                                             onChange={(val) => handleToggle('conductorType', val)}
                                             options={[
-                                                { label: "Institution / Company", value: "institution" },
-                                                { label: "Self / Examiner", value: "self" }
+                                                { label: "Institution / Company", value: "INSTITUTION" },
+                                                { label: "Self / Examiner", value: "SELF" }
                                             ]}
                                         />
 
-                                        {formData.conductorType === 'institution' ? (
+                                        {formData.conductorType === 'INSTITUTION' ? (
                                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                                                 <InputField id="institutionName" label="Institution / Company Name" icon={Building2} value={formData.institutionName} onChange={handleChange} placeholder="Global Testing Center" />
                                                 <InputField id="institutionId" label="Institution / Company ID" icon={BadgeCheck} value={formData.institutionId} onChange={handleChange} placeholder="GTC-ORG-9921" />

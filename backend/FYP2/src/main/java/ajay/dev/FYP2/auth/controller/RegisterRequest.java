@@ -1,0 +1,28 @@
+package ajay.dev.FYP2.auth.controller;
+
+import ajay.dev.FYP2.auth.controller.models.*;
+
+public record RegisterRequest(
+        String name,
+        String email,
+        String password,
+        String confirmPassword,
+        Role role,
+
+        CandidateType candidateType,
+        ConductorType conductorType,
+
+        String institutionName,
+        String institutionId,
+
+        String phoneNumber,
+        String yearOfPassing,
+        String registerNumber,
+
+        String companyName,
+        String designation,
+        Boolean isWorking,
+
+        String purpose,
+        String dob) {
+}
