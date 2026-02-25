@@ -8,9 +8,6 @@ import java.util.UUID;
 public class Fyp2Application {
 
     public static void main(String[] args) {
-        UUID uuid = UUID.randomUUID();
-        String uuidToString = uuid.toString();
-        System.out.print(uuidToString);
         SpringApplication.run(Fyp2Application.class, args);
     }
 }
