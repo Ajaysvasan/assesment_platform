@@ -1,10 +1,9 @@
 package ajay.dev.FYP2.auth.dto;
 
 public class LoginRequest {
-    private String email; // Changed to private (best practice)
+    private String email;
     private String password;
 
-    // Use standard camelCase names
     public String getEmail() {
         return email;
     }

@@ -15,29 +15,30 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    String name;
-    String email;
-    String password;
+    private String name;
+    private String email;
+    private String password;
     // To prevent the confirm password entering into the DB
     @jakarta.persistence.Transient
-    String confirmPassword;
+    private String confirmPassword;
 
-    String role;
+    private String role;
 
-    String candidateType;
-    String conductorType;
+    private String candidateType;
+    private String conductorType;
 
-    String institutionName;
-    String institutionId;
+    private String institutionName;
+    private String institutionId;
 
-    String phoneNumber;
-    String yearOfPassing;
-    String registerNumber;
+    private String phoneNumber;
+    private String yearOfPassing;
+    private String registerNumber;
 
-    String companyName;
-    String designation;
-    Boolean isWorking;
+    private String companyName;
+    private String designation;
+    private Boolean isWorking;
 
-    String purpose;
-    String dob;
+    private String purpose;
+    private String dob;
+    private boolean isBanned;
 }

@@ -1,5 +1,4 @@
-
-package ajay.dev.FYP2.auth.controller.models;
+package ajay.dev.FYP2.auth.models;
 
 public enum ConductorType {
     SELF,
