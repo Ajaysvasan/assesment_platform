@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 @Data
 public class User {
     @Id
@@ -18,10 +18,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-    // To prevent the confirm password entering into the DB
-    @jakarta.persistence.Transient
-    private String confirmPassword;
-
     private String role;
 
     private String candidateType;
