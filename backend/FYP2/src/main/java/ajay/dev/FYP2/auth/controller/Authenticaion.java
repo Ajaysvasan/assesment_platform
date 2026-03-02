@@ -20,9 +20,9 @@ class Authentication {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest login_req) {
-        int status = authService.login(login_req.getEmail(), login_req.getPassword());
-        if (status == 200) {
-            return ResponseEntity.ok("success");
+        String token = authService.login(login_req.getEmail(), login_req.getPassword());
+        if (!"Login failed".equals(token)) {
+            return ResponseEntity.ok(token);
         } else {
             System.out.println("The user is not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid credentials");

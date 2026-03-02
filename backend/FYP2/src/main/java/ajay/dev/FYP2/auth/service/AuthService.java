@@ -3,6 +3,7 @@ package ajay.dev.FYP2.auth.service;
 import org.springframework.stereotype.Service;
 import ajay.dev.FYP2.auth.entity.User;
 import ajay.dev.FYP2.auth.repository.UserRepository;
+import ajay.dev.FYP2.auth.security.JwtService;
 
 import java.util.Optional;
 
@@ -15,9 +16,13 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    @Autowired
+    private JwtService jwtService;
+
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
+        this.jwtService = jwtService;
     }
 
     public int register(User user) {
@@ -30,16 +35,15 @@ public class AuthService {
         return 0; // Registration successful
     }
 
-    public int login(String email, String password) {
+    public String login(String email, String password) {
         Optional<User> userOptional = userRepository.findByEmail(email);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (passwordEncoder.matches(password, user.getPassword())) {
-                // There should be JWT logic that I have to do here
-                return 200; // Success
+                return jwtService.generateToken(user.getEmail(), user.getRole());
             }
         }
-        return 404; // Not found or wrong password
+        return "Login failed";
     }
 
 }
