@@ -1,12 +1,18 @@
 package ajay.dev.FYP2.auth.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
+import jakarta.persistence.*;
+import ajay.dev.FYP2.exam.entity.*;
 
 @Entity
 @Table(name = "users")
@@ -37,4 +43,7 @@ public class User {
     private String purpose;
     private String dob;
     private boolean isBanned;
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<Exams> exams = new ArrayList<>();
 }

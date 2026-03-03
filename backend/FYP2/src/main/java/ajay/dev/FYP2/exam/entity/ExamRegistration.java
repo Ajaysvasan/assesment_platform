@@ -6,5 +6,6 @@ import ajay.dev.FYP2.exam.models.*;
 public class ExamRegistration {
     private UUID candidateId;
     private UUID examId;
+    private UUID instructorId;
     private ExamState examState;
 }
