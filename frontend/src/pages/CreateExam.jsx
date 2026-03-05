@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { api } from "../api/client";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Save, Plus, Trash2 } from "lucide-react";
-
 export const CreateExam = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const token = localStorage.getItem("token");
   const [examDetails, setExamDetails] = useState({
     name: "",
     type: "MCQ", // 'MCQ', 'Written', or 'Coding'
     scheduledDate: "",
     scheduledTime: "",
+    token: token,
   });
 
   const [createdExamId, setCreatedExamId] = useState(null);

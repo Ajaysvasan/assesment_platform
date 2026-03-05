@@ -6,5 +6,6 @@ public record CreateExamRequest(
         String name,
         ExamType type,
         String scheduledDate,
-        String scheduledTime) {
+        String scheduledTime,
+        String token) {
 }
